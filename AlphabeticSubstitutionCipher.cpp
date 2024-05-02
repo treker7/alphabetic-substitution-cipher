@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 	string corpusFile(argv[1]), ciphertext(argv[2]), input = "";
 	int numIterations = (argc == 4) ? atoi(argv[3]) : 500;
 
-	cout << "\t[Automated Monoalphabetic Substition Cipher Cryptanalysis]" << endl << endl;
+	cout << "\t[Automatic Monoalphabetic Substition Cipher Cryptanalysis]" << endl << endl;
 	double ic = CaesarSubSolve::calculateIC(ciphertext);
 	cout << "Index of Coincidence (IC) of Ciphertext: " << ic << endl;;
 
