@@ -4,7 +4,7 @@ This program implements a hill climbing algorithm to automatically decrypt ciphe
 # Example
 In this example, the ciphertext, "guuc gu ah cpu puezc ji cpu tacq npuzu jvz xutzuc guucaho naff cedu kfetu vhyuz cpu tjbuz ji yezdhuxx", encrypted with the key, "ertyuiopasdfghjklzxcvbnmqw", is correctly decrypted to the cleartext, "meet me in the heart of the city where our secret meeting will take place under the cover of darkness".
 
-
+```
 x64/Release> AlphabeticSubstitutionCipher.exe
 Usage: AlphabeticSubstitutionCipher.exe <corpus_filename> <ciphertext> [num_iterations]
 
@@ -45,3 +45,4 @@ Cleartext: ceeacethaveversaidaventakpveseiwsmenseaceeathyptuuargeburnewhoesaveni
 Cleartext: meetmeintheheartofthecitywhereoursecretmeetingwilltakeplaceunderthecoverofdarkness Fitness: -394.67
 
 x64/Release>
+```
