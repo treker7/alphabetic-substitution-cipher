@@ -2,7 +2,6 @@
 #define CaesarSubSolve_H
 
 #include <string>
-#include <vector>
 #include <map>
 
 #define IC_ENGLISH .065
@@ -16,8 +15,7 @@ public:
 	static double calculateIC(const std::string& ciphertext);
 
 	std::string decrypt(const std::string& ciphertext);
-	double evaluateFitness(const std::string& text);
-	void sortDecrpytions(std::vector<std::string>& decryptions);
+	double evaluateFitness(const std::string& text) const;
 
 private:
 	std::map<std::string, float> quadgramCounts;
@@ -26,7 +24,7 @@ private:
 	static bool seededRandGenerator;
 
 	std::string mutateKey(const std::string& key);
-	double evaluateFitness2(const std::string& text);
+	double evaluateFitness2(const std::string& text) const;
 };
 
 #endif CaesarSubSolve_H

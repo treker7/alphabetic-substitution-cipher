@@ -1,5 +1,7 @@
 #include "CaesarSub.h"
 
+#include <algorithm>
+#include <vector>
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
@@ -35,10 +37,14 @@ int main(int argc, char* argv[]) {
 	}
 	
 	cout << "Now listing possible decryptions in order of fitness..." << endl << endl;
-	caesarSubSolver.sortDecrpytions(possible_decryptions);
+
+	std::sort(possible_decryptions.begin(), possible_decryptions.end(),
+		[caesarSubSolver](const string& decryption1, const string& decryption2) {
+			return caesarSubSolver.evaluateFitness(decryption1) < caesarSubSolver.evaluateFitness(decryption2);
+		});
 
 	for (int i = 0; i < numIterations; i++) {
-		cout << "Cleartext: " << possible_decryptions[i] << " Fitness: " << caesarSubSolver.evaluateFitness(possible_decryptions[i]) << endl;
+		cout << "Text: " << possible_decryptions[i] << " Fitness: " << caesarSubSolver.evaluateFitness(possible_decryptions[i]) << endl;
 	}
 
 	return 0;

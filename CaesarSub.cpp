@@ -1,6 +1,5 @@
 #include "CaesarSub.h"
 
-#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -125,11 +124,11 @@ double CaesarSubSolve::calculateIC(const string& ciphertext) {
 /// <summary>
 /// Returns the fitness of the given text (higher values are better).
 /// </summary>
-double CaesarSubSolve::evaluateFitness(const string& text) {
+double CaesarSubSolve::evaluateFitness(const string& text) const {
 	return evaluateFitness2(removeNonAlpha(text));
 }
 
-double CaesarSubSolve::evaluateFitness2(const string& text) {
+double CaesarSubSolve::evaluateFitness2(const string& text) const {
 	double fitness = 0;
 	// If the quadgram doesn't appear in the corpus at all, then it's unlikely that the text is English (assuming the corpus is a good sampling of English).
 	double noQuadgram = (1.05 * log(1.0 / quadgramCounts.size()));
@@ -192,14 +191,4 @@ string CaesarSubSolve::decrypt(const string& ciphertext) {
 	}
 
 	return decode(ciphertext, bestKey);
-}
-
-/// <summary>
-/// Sorts the decryptions by fitness function.
-/// </summary>
-void CaesarSubSolve::sortDecrpytions(std::vector<string>& decryptions) {
-	std::sort(decryptions.begin(), decryptions.end(),
-		[this](const string &decryption1, const string &decryption2) {
-			return evaluateFitness2(decryption1) < evaluateFitness2(decryption2);
-	});
 }
